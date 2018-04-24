@@ -2,7 +2,6 @@
 <idea-plugin>
     <id>intellij-maven-wrapper-plugin</id>
     <name>Maven Wrapper Support</name>
-    <version>0.0.1</version>
     <vendor email="710692586@qq.com" url="https://github.com/cn-src/intellij-maven-wrapper-plugin">zhangpeng</vendor>
 
     <description><![CDATA[
