@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <idea-plugin>
     <id>intellij-maven-wrapper-plugin</id>
-    <name>Maven Wrapper IntelliJ IDEA plugin</name>
+    <name>Maven Wrapper Support</name>
     <version>0.0.1</version>
     <vendor email="710692586@qq.com" url="https://github.com/cn-src/intellij-maven-wrapper-plugin">zhangpeng</vendor>
 
     <description><![CDATA[
-      Maven Wrapper support for IntelliJ IDEA.
+      Maven Wrapper Support for IntelliJ IDEA.
       ]]>
     </description>
     <change-notes>
