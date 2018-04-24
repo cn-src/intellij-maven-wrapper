@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <idea-plugin>
-    <id>intellij-maven-wrapper-plugin</id>
+    <id>intellij-maven-wrapper</id>
     <name>Maven Wrapper Support</name>
     <vendor email="710692586@qq.com" url="https://github.com/cn-src/intellij-maven-wrapper-plugin">zhangpeng</vendor>
 
