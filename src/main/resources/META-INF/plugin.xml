@@ -13,11 +13,17 @@
     </change-notes>
     <idea-version since-build="172.0"/>
     <depends>org.jetbrains.idea.maven</depends>
-
+    <actions>
+        <group id="MavenGroup.MavenMenu" text="Maven" description="Maven Tool">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="Maven.MavenWrapperAction" class="cn.javaer.intellij.plugin.MavenWrapperAction"
+                    text="reconfig"
+                    description="reconfig"/>
+        </group>
+    </actions>
     <project-components>
         <component>
             <implementation-class>cn.javaer.intellij.plugin.MavenWrapperProjectComponent</implementation-class>
         </component>
     </project-components>
-
 </idea-plugin>
