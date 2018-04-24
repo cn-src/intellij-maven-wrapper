@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<idea-plugin>
+    <id>intellij-maven-wrapper-plugin</id>
+    <name>Maven Wrapper IntelliJ IDEA plugin</name>
+    <version>0.0.1</version>
+    <vendor email="710692586@qq.com" url="https://github.com/cn-src/intellij-maven-wrapper-plugin">zhangpeng</vendor>
+
+    <description><![CDATA[
+      Maven Wrapper support for IntelliJ IDEA.
+      ]]>
+    </description>
+    <change-notes>
+    </change-notes>
+    <idea-version since-build="172.0"/>
+    <depends>org.jetbrains.idea.maven</depends>
+
+    <project-components>
+        <component>
+            <implementation-class>cn.javaer.intellij.plugin.MavenWrapperProjectComponent</implementation-class>
+        </component>
+    </project-components>
+
+</idea-plugin>
