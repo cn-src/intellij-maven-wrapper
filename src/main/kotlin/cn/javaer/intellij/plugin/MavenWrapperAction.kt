@@ -53,7 +53,9 @@ class MavenWrapperAction : AnAction() {
                                 val generalSettings = MavenProjectsManager.getInstance(project).generalSettings
                                 if (generalSettings != null) {
                                     generalSettings.mavenHome = mavenHome.absolutePath
-                                    generalSettings.setUserSettingsFile(mavenHome.absolutePath + "/conf/settings.xml")
+                                    if (!File(System.getProperty("user.home"), ".m2/settings.xml").exists()) {
+                                        generalSettings.setUserSettingsFile(mavenHome.absolutePath + "/conf/settings.xml")
+                                    }
                                 }
                             }
                         }
