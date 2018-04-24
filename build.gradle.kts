@@ -19,3 +19,6 @@ intellij {
     version = "2018.1.1"
     updateSinceUntilBuild = false
 }
+configure<JavaPluginConvention> {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
