@@ -14,11 +14,19 @@ plugins {
 
 group = "cn.javaer.intellij.plugin"
 version = "1.0-SNAPSHOT"
-
+repositories {
+    mavenCentral()
+}
 intellij {
     version = "2018.1.1"
     updateSinceUntilBuild = false
 }
-configure<JavaPluginConvention> {
+java {
     sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    compile("io.takari:maven-wrapper:0.4.0")
+    compileOnly(fileTree(mapOf("dir" to "libs", "include" to "*.jar")))
 }
