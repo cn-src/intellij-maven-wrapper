@@ -17,8 +17,8 @@
         <group id="MavenGroup.MavenMenu" text="Maven" description="Maven Tool">
             <add-to-group group-id="MainMenu" anchor="last"/>
             <action id="Maven.MavenWrapperAction" class="cn.javaer.intellij.plugin.MavenWrapperAction"
-                    text="reconfig"
-                    description="reconfig"/>
+                    text="Refresh Config"
+                    description="Refresh the configuration"/>
         </group>
     </actions>
     <project-components>
