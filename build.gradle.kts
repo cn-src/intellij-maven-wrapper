@@ -1,3 +1,5 @@
+import java.util.regex.Pattern.compile
+
 buildscript {
     val kotlinVersion by extra("1.2.40")
     repositories {
@@ -13,7 +15,7 @@ plugins {
 }
 
 group = "cn.javaer.intellij.plugin"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 repositories {
     mavenCentral()
 }
