@@ -23,6 +23,9 @@ class MavenWrapperAction : AnAction() {
 
     companion object {
         fun config(project: Project) {
+            if (!MavenProjectsManager.getInstance(project).isMavenizedProject) {
+                return
+            }
             val projectBaseDir = project.baseDir
             val wrapperMavenDir = projectBaseDir.findChild(".mvn")
             val generalSettings = MavenProjectsManager.getInstance(project).generalSettings
@@ -64,7 +67,7 @@ class MavenWrapperAction : AnAction() {
                     } catch (e: Exception) {
                     }
                 }
-            } else if (MavenProjectsManager.getInstance(project).isMavenizedProject) {
+            } else {
                 val mavenDir = File(generalSettings.mavenHome)
                 if (!mavenDir.exists()) {
                     try {
