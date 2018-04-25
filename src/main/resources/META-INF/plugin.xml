@@ -13,9 +13,9 @@
     <idea-version since-build="172.0"/>
     <depends>org.jetbrains.idea.maven</depends>
     <actions>
-        <group id="MavenWrapperGroup.MavenWrapperMenu" text="MavenWrapper" description="Maven wrapper Tool">
+        <group id="MavenGroup.MavenMenu" text="Maven" description="Maven Tool">
             <add-to-group group-id="MainMenu" anchor="last"/>
-            <action id="MavenWrapper.MavenWrapperAction" class="cn.javaer.intellij.plugin.MavenWrapperAction"
+            <action id="Maven.MavenWrapperAction" class="cn.javaer.intellij.plugin.MavenWrapperAction"
                     text="Refresh Config"
                     description="Refresh the configuration"/>
         </group>
