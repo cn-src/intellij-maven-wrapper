@@ -69,9 +69,9 @@ class MavenWrapperAction : AnAction() {
                 }
             } else {
                 val mavenDir = File(generalSettings.mavenHome)
-                if (!mavenDir.exists()) {
+                if (!mavenDir.exists() && (-1 != System.getProperty("os.name").toLowerCase().indexOf("mac"))) {
                     try {
-                        val output = Runtime.getRuntime().exec(System.getProperty("user.home") + "/.jenv/shims/mvn -v", null, File(System.getProperty("user.home")))
+                        val output = Runtime.getRuntime().exec("/usr/local/bin/mvn -v", null, File(System.getProperty("user.home")))
                                 .inputStream.readBytes().toString(Charset.defaultCharset())
                         val start = output.indexOf("Maven home:")
                         val end = output.indexOfAny(setOf("\r\n", "\n", "\r"), start)
