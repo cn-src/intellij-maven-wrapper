@@ -69,7 +69,7 @@ class MavenWrapperAction : AnAction() {
                 }
             } else {
                 val mavenDir = File(generalSettings.mavenHome)
-                if (!mavenDir.exists() && (-1 != System.getProperty("os.name").toLowerCase().indexOf("mac"))) {
+                if (!mavenDir.exists() && (System.getProperty("os.name").toLowerCase().indexOf("mac") >= 0)) {
                     try {
                         val output = Runtime.getRuntime().exec("/usr/local/bin/mvn -v", null, File(System.getProperty("user.home")))
                                 .inputStream.readBytes().toString(Charset.defaultCharset())
