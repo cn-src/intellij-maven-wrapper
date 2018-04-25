@@ -71,7 +71,7 @@ class MavenWrapperAction : AnAction() {
                 val mavenDir = File(generalSettings.mavenHome)
                 if (!mavenDir.exists()) {
                     try {
-                        val output = Runtime.getRuntime().exec("mvn -v")
+                        val output = Runtime.getRuntime().exec("mvn -v", arrayOf(), File(System.getProperty("user.home")))
                                 .inputStream.readBytes().toString(Charset.defaultCharset())
                         val start = output.indexOf("Maven home:")
                         val end = output.indexOfAny(setOf("\r\n", "\n", "\r"), start)
@@ -83,7 +83,6 @@ class MavenWrapperAction : AnAction() {
                             generalSettings.setUserSettingsFile("$mavenCommandDir/conf/settings.xml")
                         }
                     } catch (e: Exception) {
-
                     }
                 }
             }
