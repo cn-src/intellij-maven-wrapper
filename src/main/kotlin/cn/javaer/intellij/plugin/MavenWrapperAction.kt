@@ -9,6 +9,7 @@ import org.apache.maven.wrapper.WrapperConfiguration
 import org.jetbrains.idea.maven.project.MavenProjectsManager
 import java.io.File
 import java.net.URI
+import java.nio.charset.Charset
 import java.util.*
 
 /**
@@ -24,6 +25,8 @@ class MavenWrapperAction : AnAction() {
         fun config(project: Project) {
             val projectBaseDir = project.baseDir
             val wrapperMavenDir = projectBaseDir.findChild(".mvn")
+            val generalSettings = MavenProjectsManager.getInstance(project).generalSettings
+
             if (wrapperMavenDir != null && wrapperMavenDir.exists()) {
                 val properties = Properties()
                 try {
@@ -50,7 +53,6 @@ class MavenWrapperAction : AnAction() {
                                     .replace(".zip", "")
                             val mavenHome = File(distributionDir, mavenDirName)
                             if (mavenHome.exists()) {
-                                val generalSettings = MavenProjectsManager.getInstance(project).generalSettings
                                 if (generalSettings != null) {
                                     generalSettings.mavenHome = mavenHome.absolutePath
                                     if (!File(System.getProperty("user.home"), ".m2/settings.xml").exists()) {
@@ -60,6 +62,25 @@ class MavenWrapperAction : AnAction() {
                             }
                         }
                     } catch (e: Exception) {
+                    }
+                }
+            } else {
+                val mavenDir = File(generalSettings.mavenHome)
+                if (!mavenDir.exists()) {
+                    try {
+                        val output = Runtime.getRuntime().exec("mvn -v")
+                                .inputStream.readBytes().toString(Charset.defaultCharset())
+                        val start = output.indexOf("Maven home:")
+                        val end = output.indexOfAny(setOf("\r\n", "\n", "\r"), start)
+                        val mavenCommandDir = output.substring(start + "Maven home:".length, end).trim()
+                        if (File(mavenCommandDir).exists()) {
+                            generalSettings.mavenHome = mavenCommandDir
+                        }
+                        if (!File(System.getProperty("user.home"), ".m2/settings.xml").exists()) {
+                            generalSettings.setUserSettingsFile("$mavenCommandDir/conf/settings.xml")
+                        }
+                    } catch (e: Exception) {
+
                     }
                 }
             }
