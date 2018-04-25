@@ -64,7 +64,7 @@ class MavenWrapperAction : AnAction() {
                     } catch (e: Exception) {
                     }
                 }
-            } else {
+            } else if (MavenProjectsManager.getInstance(project).isMavenizedProject) {
                 val mavenDir = File(generalSettings.mavenHome)
                 if (!mavenDir.exists()) {
                     try {
