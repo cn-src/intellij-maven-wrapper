@@ -1,5 +1,3 @@
-import java.util.regex.Pattern.compile
-
 buildscript {
     val kotlinVersion by extra("1.2.40")
     repositories {
