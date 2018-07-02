@@ -10,7 +10,7 @@ import org.jetbrains.idea.maven.project.MavenProjectsManager
 import java.io.File
 import java.net.URI
 import java.nio.charset.Charset
-import java.util.*
+import java.util.Properties
 
 /**
  * @author cn-src
