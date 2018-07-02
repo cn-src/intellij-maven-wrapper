@@ -13,7 +13,7 @@ import java.nio.charset.Charset
 import java.util.*
 
 /**
- * @author zhangpeng
+ * @author cn-src
  */
 class MavenWrapperAction : AnAction() {
 

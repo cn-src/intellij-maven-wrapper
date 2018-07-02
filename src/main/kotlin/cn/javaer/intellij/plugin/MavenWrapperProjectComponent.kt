@@ -5,7 +5,7 @@ import com.intellij.openapi.project.Project
 
 
 /**
- * @author zhangpeng
+ * @author cn-src
  */
 class MavenWrapperProjectComponent(val project: Project) : ProjectComponent {
     override fun initComponent() {
